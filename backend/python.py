@@ -8,6 +8,8 @@ def home():
 
 @app.route("/login", methods=["POST"])
 def login():
+    print(request.form)
+
     username = request.form.get("username")
     password = request.form.get("password")
 
