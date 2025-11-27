@@ -9,18 +9,13 @@ def home():
 
 @app.route("/login", methods=["POST"])
 def login():
-    print(request.form, file=sys.stderr)
-    print("Received login:", file=sys.stderr)
-
     username = request.form.get("username")
     password = request.form.get("password")
 
-    print("Name:", username, file=sys.stderr)
-    print("Password:", password, file=sys.stderr)
-    
     if username == "fred" and password == "password":
         return "Access granted"
-    return 'Try "fred" and "password".'
-    
+
+    return render_template("index.html", error='Try "fred" and "password".')
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
