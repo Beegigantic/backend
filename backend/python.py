@@ -17,8 +17,10 @@ def login():
 
     print("Name:", username, file=sys.stderr)
     print("Password:", password, file=sys.stderr)
-
-    return "Access granted"
-
+    
+    if username == "fred" and password == "password":
+        return "Access granted"
+    return 'Try "fred" and "password".'
+    
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
